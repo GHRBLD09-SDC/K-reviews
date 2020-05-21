@@ -4,6 +4,8 @@ This is the repo for the 'reviews' module. The 'reviews' module will be found in
 ## Scripts to run
 #### npm run server
 - runs the server by running node on index.js in the server file
+#### npm run seed
+- runs the seeder function to fill the database
 
 
 ## CRUD Routes

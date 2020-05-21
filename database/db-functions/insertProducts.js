@@ -13,7 +13,7 @@ const product = new Product({
     response: '',
     body: faker.fake('{{lorem.sentence}}'),
     date: 'today',
-    reviewer_name: faker.fake('{{lorem.firstName}} {{lorem.lastName}}'),
+    reviewer_name: faker.fake('{{name.firstName}} {{name.lastName}}'),
     helpfullness: Math.floor(Math.random() * 5 + 1),
     photos: [{ //randomize how many photos
       id: 1,
@@ -40,4 +40,4 @@ const product = new Product({
   }],
 });
 
-product.svae();
+product.save();
