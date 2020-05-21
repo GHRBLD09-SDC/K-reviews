@@ -1,6 +1,15 @@
 const faker = require('faker');
+const { PerformanceObserver, performance } = require('perf_hooks');
 const Product = require('../ProductSchema.js');
 
+const obs = new PerformanceObserver((items) => {
+  console.log(items.getEntries()[0].duration);
+  performance.clearMarks();
+});
+obs.observe({ entryTypes: ['measure'] });
+performance.measure('Start to Now');
+
+performance.mark('A');
 const product = new Product({
   product_id: '1',
   page: 1,
@@ -41,3 +50,4 @@ const product = new Product({
 });
 
 product.save();
+performance.measure('A to Now', 'A');
