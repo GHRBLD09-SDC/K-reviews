@@ -5,7 +5,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', () => console.log('connection established to Greenfield Reviews'));
 
-const reviewSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   product_id: String,
   page: Number,
   count: Number,
@@ -23,23 +23,27 @@ const reviewSchema = new mongoose.Schema({
       id: Number,
       url: String,
     }],
+    characteristics: {
+      size: {
+        id: Number,
+        value: String,
+      },
+      width: {
+        id: Number,
+        value: String,
+      },
+      confort: {
+        id: Number,
+        value: String,
+      },
+      quality: {
+        id: Number,
+        value: String,
+      },
+    },
   }],
-  characteristics: {
-    size: {
-      id: Number,
-      value: String,
-    },
-    width: {
-      id: Number,
-      value: String,
-    },
-    confort: {
-      id: Number,
-      value: String,
-    },
-  },
 });
 
-const Review = mongoose.model('Review', reviewSchema);
+const Product = mongoose.model('Product', productSchema);
 
-module.exports = Review;
+module.exports = Product;
