@@ -9,20 +9,20 @@ This is the repo for the 'reviews' module. The 'reviews' module will be found in
 ## CRUD Routes
 #### List Reviews
 - Returns a list of reviews for a particular product. This list *does not* include any reported reviews
-- > GET /reviews/:product_id/list
+> GET /reviews/:product_id/list
 
 #### Get Review Metadata
 - Returns review metadata for a given product
-- > GET /reviews/:product/id/meta
+> GET /reviews/:product/id/meta
 
 #### Add a Review
 - Adds a review for the given product
-- > POST /reviews/:product_id
+> POST /reviews/:product_id
 
 #### Mark Review as Helpful
 - Updates a review to show it was found helpful
-- > PUT /reviews/helpful/:review_id
+> PUT /reviews/helpful/:review_id
 
 #### Report Review
 - Updates a review to show it was reported. Note, this action does not delete the review, but the review will not be returned in the above GET request
-- > PUT /reviews/report/:review_id
+> PUT /reviews/report/:review_id
