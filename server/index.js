@@ -10,7 +10,8 @@ app.use(bp.json());
 
 //Returns a list of reviews for a particular product. This list does not include any reported reviews.
 app.get('/reviews/:product_id/list', (req, res) => {
-  res.send('test1');
+  console.log(req.params.product_id)
+  res.send('test1')
 });
 
 //Returns review metadata for a given product
