@@ -2,8 +2,8 @@ const faker = require('faker');
 const { PerformanceObserver, performance } = require('perf_hooks');
 const Product = require('../ProductSchema.js');
 
-const obs = new PerformanceObserver((items) => {
-  console.log(items.getEntries()[0].duration);
+const obs = new PerformanceObserver((items) => { //don't know if I need lines 5-11
+  console.log(items.getEntries()[0].duration); //the "undefined" performance mark has not been set
   performance.clearMarks();
 });
 obs.observe({ entryTypes: ['measure'] });
