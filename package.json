@@ -4,7 +4,7 @@
   "description": "This is the revies module for the FEC 2.0",
   "main": "index.js",
   "scripts": {
-    "seed": "node database/db-functions/insertProducts.js",
+    "datafy": "node database/db-functions/insertProducts.js",
     "server": "nodemon server/index.js",
     "server-production": "node server/index.js"
   },
