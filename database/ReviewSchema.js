@@ -20,7 +20,7 @@ const reviewSchema = new mongoose.Schema({
     id: Number,
     url: String,
   }],
-  characteristics: [Number],
+  characteristics: [{}],
 });
 
 const Review = mongoose.model('Review', reviewSchema);

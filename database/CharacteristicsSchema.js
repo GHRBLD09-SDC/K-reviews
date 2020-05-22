@@ -8,3 +8,5 @@ db.once('open', () => console.log('connection established to Greenfield Reviews'
 const CharacteristicsSchema = {
   
 }
+
+module.exports = CharacteristicsSchema;

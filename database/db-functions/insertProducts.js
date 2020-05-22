@@ -1,9 +1,10 @@
 const faker = require('faker');
+const fs = require('fs');
 const { PerformanceObserver, performance } = require('perf_hooks');
 const Review = require('../ReviewSchema.js');
 
 const seeder = () => {
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < 1; i += 1) {
     const review = new Review({
       review_id: 1,
       product_id: 1,
@@ -21,7 +22,7 @@ const seeder = () => {
       }],
       characteristics: [1, 2],
     });
-    review.save();
+    fs.writeFileSync('../../data.json', review);
     if (i % 1000 === 0) console.log(i);
   }
 };
