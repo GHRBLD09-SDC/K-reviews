@@ -20,9 +20,9 @@ const seeder = () => {
         id: 1,
         url: faker.fake('{{image.image}}'),
       }],
-      characteristics: [1, 2],
+      characteristics: [1, 2, 5],
     };
-    fs.writeFileSync('database/data.json', JSON.stringify(review));
+    fs.writeFileSync('database/data.json', JSON.stringify(review), {'flag': 'as'});
     // if (i % 1000 === 0) console.log(i);
   }
 };
