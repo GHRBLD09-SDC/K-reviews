@@ -1,13 +1,12 @@
 const faker = require('faker');
 const fs = require('fs');
 const { PerformanceObserver, performance } = require('perf_hooks');
-// const Review = require('../ReviewSchema.js');
 
 const seeder = () => {
-  for (let i = 0; i < 1; i += 1) {
+  for (let i = 0; i < 1000000; i += 1) {
     const review = {
       review_id: 1,
-      product_id: 1,
+      product_id: i,
       rating: Math.floor(Math.random() * 5 + 1),
       summary: faker.fake('{{lorem.sentence}}'),
       recommend: 0,
@@ -22,8 +21,8 @@ const seeder = () => {
       }],
       characteristics: [1, 2, 5],
     };
-    fs.writeFileSync('database/data.json', JSON.stringify(review), {'flag': 'as'});
-    // if (i % 1000 === 0) console.log(i);
+    fs.writeFileSync('database/data.json', JSON.stringify(review), { flag: 'as' });
+    if (i % 1000 === 0) console.log(i);
   }
 };
 
