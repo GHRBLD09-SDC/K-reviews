@@ -1,5 +1,6 @@
 const express = require('express');
 const bp = require('body-parser');
+const Review = require('../database/ReviewSchema.js');
 
 const app = express();
 const port = 8153;
@@ -10,8 +11,11 @@ app.use(bp.json());
 
 //Returns a list of reviews for a particular product. This list does not include any reported reviews.
 app.get('/reviews/:product_id/list', (req, res) => {
-  console.log(req.params.product_id)
-  res.send('test1')
+  Review.findOne({review_id: 7})
+  .then(data => {
+    console.log(data)
+    res.send('hi')
+  })
 });
 
 //Returns review metadata for a given product
