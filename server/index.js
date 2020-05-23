@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bp = require('body-parser');
 const Review = require('../database/ReviewSchema.js');
