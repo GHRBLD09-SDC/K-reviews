@@ -12,9 +12,8 @@ app.use(bp.json());
 
 //Returns a list of reviews for a particular product. This list does not include any reported reviews.
 app.get('/reviews/:product_id/list', (req, res) => {
-  Review.findOne({ product_id: req.params.product_id })
+  Review.find({ product_id: req.params.product_id })
     .then((data) => {
-      console.log(data)
       res.send(data);
     });
 });
