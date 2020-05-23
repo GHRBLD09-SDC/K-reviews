@@ -7,7 +7,7 @@ db.once('open', () => console.log('connection established to Greenfield Reviews'
 
 const reviewSchema = new mongoose.Schema({
   review_id: Number,
-  product_id: String,
+  product_id: Number,
   rating: Number,
   summary: String,
   recommend: Number,

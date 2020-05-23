@@ -9,7 +9,7 @@ const seeder = () => {
   for (let i = 0; i < 10000000; i += 1) {
     const review = {
       review_id: i,
-      product_id: Math.floor(Math.random() * 5000 + 1),
+      product_id: Math.floor(Math.random() * 500 + 1),
       rating: Math.floor(Math.random() * 5 + 1),
       summary: faker.fake('{{lorem.sentence}}'),
       recommend: 0,
