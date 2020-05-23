@@ -6,7 +6,8 @@
   "scripts": {
     "datafy": "node database/db-functions/insertProducts.js",
     "server": "nodemon server/index.js",
-    "server-production": "node server/index.js"
+    "server-production": "node server/index.js",
+    "import": "mongoimport --db=greenfield --collection=reviews --type=json --file=C:/Users/katil/BLD09/SDC/K-reviews/database/data.json"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "mocha": "^7.1.2",
+    "moment": "^2.26.0",
     "mongoose": "^5.9.15",
     "mongoose-seed": "^0.6.0",
     "nodemon": "^2.0.4"

@@ -6,6 +6,8 @@ This is the repo for the 'reviews' module. The 'reviews' module will be found in
 - runs the server by running node on index.js in the server file
 #### npm run datafy
 - runs the data generation functions to create 10million data points
+#### npm run import
+- imports data generated into the json file into the mongo db
 
 
 ## CRUD Routes

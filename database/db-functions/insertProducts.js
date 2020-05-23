@@ -1,28 +1,28 @@
 const faker = require('faker');
 const fs = require('fs');
+const moment = require('moment');
 const { PerformanceObserver, performance } = require('perf_hooks');
+const photosGen = require('./photosGen.js');
+const characteristicsGen = require('./characteristicsGen');
 
 const seeder = () => {
-  for (let i = 0; i < 10000000; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     const review = {
-      review_id: '1',
-      product_id: i,
+      review_id: i,
+      product_id: Math.floor(Math.random() * 5000 + 1),
       rating: Math.floor(Math.random() * 5 + 1),
       summary: faker.fake('{{lorem.sentence}}'),
-      recommend: '0',
+      recommend: 0,
       response: '',
       body: faker.fake('{{lorem.sentence}}'),
-      date: 'today',
+      date: moment().format(),
       reviewer_name: faker.fake('{{name.firstName}} {{name.lastName}}'),
       helpfullness: Math.floor(Math.random() * 5 + 1),
-      photos: [{ //randomize how many photos
-        id: 1,
-        url: faker.fake('{{image.image}}'),
-      }],
-      characteristics: [1, 2, 5],
+      photos: photosGen(),
+      characteristics: characteristicsGen(),
     };
     fs.writeFileSync('database/data.json', JSON.stringify(review), { flag: 'as' });
-    if (i % 1000 === 0) console.log(i);
+    if (i % 10000 === 0) console.log(`${i / 100000}%`);
   }
 };
 
