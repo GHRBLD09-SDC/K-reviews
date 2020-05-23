@@ -6,7 +6,7 @@ const photosGen = require('./photosGen.js');
 const characteristicsGen = require('./characteristicsGen');
 
 const seeder = () => {
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 10000000; i += 1) {
     const review = {
       review_id: i,
       product_id: Math.floor(Math.random() * 5000 + 1),
