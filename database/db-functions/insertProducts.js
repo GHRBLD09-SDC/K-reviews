@@ -5,11 +5,12 @@ const { PerformanceObserver, performance } = require('perf_hooks');
 const photosGen = require('./photosGen.js');
 const characteristicsGen = require('./characteristicsGen');
 
+const n = 10;
 const seeder = () => {
-  for (let i = 0; i < 10000000; i += 1) {
+  for (let i = 0; i < n; i += 1) {
     const review = {
       review_id: i,
-      product_id: Math.floor(Math.random() * 2500000 + 1),
+      product_id: Math.floor(Math.random() * (n / 4) + 1),
       rating: Math.floor(Math.random() * 5 + 1),
       summary: faker.fake('{{lorem.sentence}}'),
       recommend: 0,
