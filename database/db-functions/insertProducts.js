@@ -5,7 +5,7 @@ const { PerformanceObserver, performance } = require('perf_hooks');
 const photosGen = require('./photosGen.js');
 const characteristicsGen = require('./characteristicsGen');
 
-const n = 100000;
+const n = 10000000;
 const seeder = () => {
   for (let i = 0; i < n; i += 1) {
     const review = {
