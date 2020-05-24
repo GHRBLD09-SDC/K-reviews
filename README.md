@@ -8,6 +8,8 @@ This is the repo for the 'reviews' module. The 'reviews' module will be found in
 - runs the data generation functions to create 10million data points
 #### npm run import
 - imports data generated into the json file into the mongo db
+#### npm run review-test
+- tests to make sure that each product has 1-7 reviews
 
 
 ## CRUD Routes

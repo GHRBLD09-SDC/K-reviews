@@ -7,7 +7,8 @@
     "datafy": "node database/db-functions/insertProducts.js",
     "server": "nodemon server/index.js",
     "server-production": "node server/index.js",
-    "import": "mongoimport --db=greenfield --collection=reviews --type=json --file=C:/Users/katil/BLD09/SDC/K-reviews/database/data.json"
+    "import": "mongoimport --db=greenfield --collection=reviews --type=json --file=C:/Users/katil/BLD09/SDC/K-reviews/database/data.json",
+    "review-test": "mocha ./database/db-functions/test.js"
   },
   "repository": {
     "type": "git",
