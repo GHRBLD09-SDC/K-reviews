@@ -1,7 +1,7 @@
 require('newrelic');
 const express = require('express');
 const bp = require('body-parser');
-const Review = require('../database/ReviewSchema.js');
+const { getAll, getMeta } = require('./controllers.js');
 
 const app = express();
 const port = 8153;
@@ -13,15 +13,12 @@ app.use(bp.json());
 /* Returns a list of reviews for a particular product.
  This list does not include any reported reviews. */
 app.get('/reviews/:product_id/list', (req, res) => {
-  Review.find({ product_id: req.params.product_id })
-    .then((data) => {
-      res.send(data);
-    });
+  getAll(req.params.product_id, res);
 });
 
 /* Returns review metadata for a given product */
 app.get('/reviews/:product_id/meta', (req, res) => {
-  res.send('test2');
+  getMeta(req.params.product_id, res);
 });
 
 /* Adds a review for the given product */

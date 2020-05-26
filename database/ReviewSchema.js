@@ -6,8 +6,8 @@ db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', () => console.log('connection established to Greenfield Reviews'));
 
 const reviewSchema = new mongoose.Schema({
-  review_id: Number,
-  product_id: Number,
+  review_id: { type: Number, index: true },
+  product_id: { type: Number, index: true },
   rating: Number,
   summary: String,
   recommend: Number,
