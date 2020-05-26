@@ -33,3 +33,18 @@ exports.addReview = (req, res) => {
   newReview.save();
   res.status(201).send();
 };
+
+exports.helpfulReview = (req, res) => {
+  Review.findOne({ review_id: req })
+    .then((data) => {
+      data.helpfullness += 1;
+      return data;
+    })
+    .then((replacer) => {
+      console.log(replacer)
+      Review.updateOne({ review_id: req }, replacer);
+    })
+    .then(() => {
+      res.status(204).send();
+    });
+};

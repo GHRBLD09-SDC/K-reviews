@@ -1,7 +1,7 @@
 require('newrelic');
 const express = require('express');
 const bp = require('body-parser');
-const { getAll, getMeta, addReview } = require('./controllers.js');
+const { getAll, getMeta, addReview, helpfulReview } = require('./controllers.js');
 
 const app = express();
 const port = 8153;
@@ -28,7 +28,7 @@ app.post('/reviews/:product_id', (req, res) => {
 
 /* Updates a review to show it was found helpful */
 app.put('/reviews/helpful/:review_id', (req, res) => {
-  res.send('test4');
+  helpfulReview(req.params.review_id, res);
 });
 
 /* Updates a review to show it was reported. Note, this action does not delete the review,
