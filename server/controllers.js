@@ -46,5 +46,25 @@ exports.helpfulReview = (req, res) => {
     })
     .then(() => {
       res.status(204).send();
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+exports.report = (req, res) => {
+  Review.findOne({ review_id: req })
+    .then((data) => {
+      data.reported = true;
+      return data;
+    })
+    .then((replacer) => {
+      Review.updateOne({ review_id: req }, replacer);
+    })
+    .then(() => {
+      res.status(204).send();
+    })
+    .catch((err) => {
+      throw err;
     });
 };

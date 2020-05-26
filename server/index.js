@@ -1,7 +1,13 @@
 require('newrelic');
 const express = require('express');
 const bp = require('body-parser');
-const { getAll, getMeta, addReview, helpfulReview } = require('./controllers.js');
+const {
+  getAll,
+  getMeta,
+  addReview,
+  helpfulReview,
+  report,
+} = require('./controllers.js');
 
 const app = express();
 const port = 8153;
@@ -34,5 +40,5 @@ app.put('/reviews/helpful/:review_id', (req, res) => {
 /* Updates a review to show it was reported. Note, this action does not delete the review,
  but the review will not be returned in the above GET request. */
 app.put('/reviews/report/:review_id', (req, res) => {
-  res.send('test5');
+  report(req.params.review_id, res);
 });
