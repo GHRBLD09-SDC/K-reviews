@@ -18,6 +18,7 @@ const seeder = () => {
       body: faker.fake('{{lorem.sentence}}'),
       date: moment().format(),
       reviewer_name: faker.fake('{{name.firstName}} {{name.lastName}}'),
+      email: faker.fake('{{enternet.email}}'),
       helpfullness: Math.floor(Math.random() * 5 + 1),
       photos: photosGen(),
       characteristics: characteristicsGen(),

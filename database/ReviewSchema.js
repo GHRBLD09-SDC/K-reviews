@@ -15,6 +15,7 @@ const reviewSchema = new mongoose.Schema({
   body: String,
   date: String,
   reviewer_name: String,
+  email: String,
   helpfullness: Number,
   photos: [{
     id: Number,

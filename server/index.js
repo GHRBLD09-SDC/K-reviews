@@ -1,7 +1,7 @@
 require('newrelic');
 const express = require('express');
 const bp = require('body-parser');
-const { getAll, getMeta } = require('./controllers.js');
+const { getAll, getMeta, addReview } = require('./controllers.js');
 
 const app = express();
 const port = 8153;
@@ -23,7 +23,7 @@ app.get('/reviews/:product_id/meta', (req, res) => {
 
 /* Adds a review for the given product */
 app.post('/reviews/:product_id', (req, res) => {
-  res.send('test3');
+  addReview(req.body, res);
 });
 
 /* Updates a review to show it was found helpful */

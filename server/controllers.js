@@ -3,7 +3,7 @@ const Review = require('../database/ReviewSchema.js');
 exports.getAll = (req, res) => {
   Review.find({ product_id: req })
     .then((data) => {
-      res.send(data);
+      res.status(200).send(data);
     });
 };
 
@@ -24,6 +24,12 @@ exports.getMeta = (req, res) => {
           resObj.ratings[rating] += 1;
         }
       }
-      res.send(resObj);
+      res.status(200).send(resObj);
     });
+};
+
+exports.addReview = (req, res) => {
+  const newReview = new Review(req);
+  newReview.save();
+  res.status(201).send();
 };
