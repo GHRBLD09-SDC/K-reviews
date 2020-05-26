@@ -12,18 +12,17 @@ exports.getMeta = (req, res) => {
     .then((data) => {
       const resObj = {
         product_id: req.toString(),
-        ratings: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        },
-        recommended: {
-          0: 0,
-        },
+        ratings: {},
+        recommended: {},
         characteristics: {},
       };
+      for (let i = 0; i < data.length; i += 1) {
+        if (!resObj.ratings[data[i].rating]) {
+          resObj.ratings[data[i].rating] = 1;
+        } else {
+          resObj.ratings[data[i].rating] += 1;
+        }
+      }
       res.send(resObj);
     });
 };
