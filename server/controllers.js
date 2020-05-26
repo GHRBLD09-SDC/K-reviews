@@ -17,10 +17,11 @@ exports.getMeta = (req, res) => {
         characteristics: {},
       };
       for (let i = 0; i < data.length; i += 1) {
-        if (!resObj.ratings[data[i].rating]) {
-          resObj.ratings[data[i].rating] = 1;
+        const { rating } = data[i];
+        if (!resObj.ratings[rating]) {
+          resObj.ratings[rating] = 1;
         } else {
-          resObj.ratings[data[i].rating] += 1;
+          resObj.ratings[rating] += 1;
         }
       }
       res.send(resObj);
