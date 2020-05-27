@@ -17,6 +17,7 @@ const reviewSchema = new mongoose.Schema({
   reviewer_name: String,
   email: String,
   helpfullness: Number,
+  report: Boolean,
   photos: [{
     id: Number,
     url: String,

@@ -1,7 +1,7 @@
 const Review = require('../database/ReviewSchema.js');
 
 exports.getAll = (req, res) => {
-  Review.find({ product_id: req })
+  Review.find({ product_id: req.params.product_id })
     .then((data) => {
       res.status(200).send(data);
     });
@@ -35,15 +35,9 @@ exports.addReview = (req, res) => {
 };
 
 exports.helpfulReview = (req, res) => {
-  Review.findOne({ review_id: req })
-    .then((data) => {
-      data.helpfullness += 1;
-      return data;
-    })
-    .then((replacer) => {
-      console.log(replacer)
-      Review.updateOne({ review_id: req }, replacer);
-    })
+
+  Review.updateOne({ review_id: req }, { $inc: { helpfullness: 1 } })
+
     .then(() => {
       res.status(204).send();
     })

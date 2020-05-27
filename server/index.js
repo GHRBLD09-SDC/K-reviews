@@ -18,9 +18,7 @@ app.use(bp.json());
 
 /* Returns a list of reviews for a particular product.
  This list does not include any reported reviews. */
-app.get('/reviews/:product_id/list', (req, res) => {
-  getAll(req.params.product_id, res);
-});
+app.get('/reviews/:product_id/list', getAll);
 
 /* Returns review metadata for a given product */
 app.get('/reviews/:product_id/meta', (req, res) => {
