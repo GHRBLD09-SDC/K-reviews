@@ -8,7 +8,7 @@ exports.getAll = (req, res) => {
 };
 
 exports.getMeta = (req, res) => {
-  Review.find({ product_id: req })
+  Review.find({ product_id: req.params.product_id })
     .then((data) => {
       const resObj = {
         product_id: req.toString(),
@@ -29,15 +29,13 @@ exports.getMeta = (req, res) => {
 };
 
 exports.addReview = (req, res) => {
-  const newReview = new Review(req);
+  const newReview = new Review(req.body);
   newReview.save();
   res.status(201).send();
 };
 
 exports.helpfulReview = (req, res) => {
-
-  Review.updateOne({ review_id: req }, { $inc: { helpfullness: 1 } })
-
+  Review.updateOne({ review_id: req.params.review_id }, { $inc: { helpfullness: 1 } })
     .then(() => {
       res.status(204).send();
     })
@@ -47,7 +45,7 @@ exports.helpfulReview = (req, res) => {
 };
 
 exports.report = (req, res) => {
-  Review.findOne({ review_id: req })
+  Review.findOne({ review_id: req.params.review_id })
     .then((data) => {
       data.reported = true;
       return data;

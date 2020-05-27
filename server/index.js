@@ -21,22 +21,14 @@ app.use(bp.json());
 app.get('/reviews/:product_id/list', getAll);
 
 /* Returns review metadata for a given product */
-app.get('/reviews/:product_id/meta', (req, res) => {
-  getMeta(req.params.product_id, res);
-});
+app.get('/reviews/:product_id/meta', getMeta);
 
 /* Adds a review for the given product */
-app.post('/reviews/:product_id', (req, res) => {
-  addReview(req.body, res);
-});
+app.post('/reviews/:product_id', addReview);
 
 /* Updates a review to show it was found helpful */
-app.put('/reviews/helpful/:review_id', (req, res) => {
-  helpfulReview(req.params.review_id, res);
-});
+app.put('/reviews/helpful/:review_id', helpfulReview);
 
 /* Updates a review to show it was reported. Note, this action does not delete the review,
  but the review will not be returned in the above GET request. */
-app.put('/reviews/report/:review_id', (req, res) => {
-  report(req.params.review_id, res);
-});
+app.put('/reviews/report/:review_id', report);
