@@ -45,5 +45,11 @@ exports.helpfulReview = (req, res) => {
 };
 
 exports.report = (req, res) => {
-Review.updateOne({ review_id: req.params.review_id }, { $set: { report: true }})
+  Review.updateOne({ review_id: req.params.review_id }, { $set: { report: true } })
+    .then(() => {
+      res.status(204).send();
+    })
+    .catch((err) => {
+      throw err;
+    });
 };
