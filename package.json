@@ -8,8 +8,7 @@
     "server": "nodemon server/index.js",
     "server-production": "node server/index.js",
     "import": "mongoimport --db=greenfield --collection=reviews --type=json --file=C:/Users/katil/BLD09/SDC/K-reviews/database/data.json",
-    "review-test": "mocha ./database/db-functions/test.js",
-    "ssh": "ssh -i "kyle_sdc.pem" ec2-user@ec2-18-219-85-96.us-east-2.compute.amazonaws.com"
+    "review-test": "mocha ./database/db-functions/test.js"
   },
   "repository": {
     "type": "git",
