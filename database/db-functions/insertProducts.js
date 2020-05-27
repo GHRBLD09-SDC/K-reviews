@@ -22,6 +22,7 @@ const seeder = () => {
       helpfullness: Math.floor(Math.random() * 5 + 1),
       photos: photosGen(),
       characteristics: characteristicsGen(),
+      report: false,
     };
     fs.writeFileSync('database/data.json', JSON.stringify(review), { flag: 'as' });
     if (i % 10000 === 0) console.log(`${i / 100000}%`);
