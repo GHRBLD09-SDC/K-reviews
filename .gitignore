@@ -2,3 +2,4 @@ node_modules
 data.json
 data_images
 *.pem
+newrelic_agent.log
