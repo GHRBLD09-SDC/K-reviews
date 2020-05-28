@@ -1,6 +1,7 @@
 require('newrelic');
 const express = require('express');
 const bp = require('body-parser');
+const cors = require('cors');
 const {
   getAll,
   getMeta,
@@ -10,9 +11,11 @@ const {
 } = require('./controllers.js');
 
 const app = express();
-const port = 8153;
+const port = 8154;
+
 
 app.listen(port, () => console.log(`Listenting at http://localhost:${port}`));
+app.use(cors());
 app.use(bp.json());
 
 
