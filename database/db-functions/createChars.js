@@ -53,12 +53,12 @@ const characteristic = {
     name: 'authenticity',
   },
   11: {
-    id: 10,
+    id: 11,
     value: '4.0000',
     name: 'def not copying',
   },
   12: {
-    id: 10,
+    id: 12,
     value: '4.0000',
     name: 'yarp',
   },
