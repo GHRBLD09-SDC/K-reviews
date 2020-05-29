@@ -1,4 +1,5 @@
 const Review = require('../database/ReviewSchema.js');
+const Characteristics = require('../database/CharacteristicsSchema.js');
 
 exports.getAll = (req, res) => {
   Review.find({ product_id: req.params.product_id })
@@ -10,21 +11,26 @@ exports.getAll = (req, res) => {
 exports.getMeta = (req, res) => {
   Review.find({ product_id: req.params.product_id })
     .then((data) => {
-      const resObj = {
-        product_id: req.toString(),
-        ratings: {},
-        recommended: {},
-        characteristics: {},
-      };
-      for (let i = 0; i < data.length; i += 1) {
-        const { rating } = data[i];
-        if (!resObj.ratings[rating]) {
-          resObj.ratings[rating] = 1;
-        } else {
-          resObj.ratings[rating] += 1;
-        }
-      }
-      res.status(200).send(resObj);
+      Characteristics.find()
+        .then((chars) => {
+          const resObj = {
+            product_id: req.params.product_id.toString(),
+            ratings: {},
+            recommended: {},
+            characteristics: {},
+          };
+          for (let i = 0; i < data.length; i += 1) {
+            const { rating } = data[i];
+            if (!resObj.ratings[rating]) {
+              resObj.ratings[rating] = 1;
+            } else {
+              resObj.ratings[rating] += 1;
+            }
+          }
+          const charsArr = data[0].characteristics;
+          
+          res.status(200).send(resObj);
+        });
     });
 };
 
