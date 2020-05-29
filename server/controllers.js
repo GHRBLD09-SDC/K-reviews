@@ -34,6 +34,7 @@ exports.getMeta = (req, res) => {
           const charsArr = data[0].characteristics;
           console.log(chars)
           charsArr.forEach((id) => {
+            console.log(id)
             resObj.characteristics[chars[id.toString()].name] = chars[id.toString()];
           });
           res.status(200).send(resObj);
