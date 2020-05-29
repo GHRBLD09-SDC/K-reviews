@@ -12,9 +12,9 @@ const localHelpful = 'http://localhost:8154/reviews/helpful/1';
 const ec2Helpful = 'http://ec2-3-133-97-46.us-east-2.compute.amazonaws.com:8154/reviews/helpful/1';
 
 export default () => {
-  const res = http.get(ec2Helpful);
+  const res = http.put(ec2Helpful);
   const result = check(res, {
-    'is status 204': (r) => r.status === 404,
+    'is status 204': (r) => r.status === 204,
   });
   errorRate.add(!result);
   sleep(1);
