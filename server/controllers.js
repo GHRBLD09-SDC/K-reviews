@@ -11,7 +11,7 @@ exports.getAll = (req, res) => {
 exports.getMeta = (req, res) => {
   Review.find({ product_id: req.params.product_id })
     .then((data) => {
-      Characteristics.findOne({_id: '5ed14d64deb5077ff7d317a8'})
+      Characteristics.findOne({_id: '5ed172e0ad2baf650271fd2e'})
         .then((chars) => {
           const resObj = {
             product_id: req.params.product_id.toString(),
@@ -28,10 +28,9 @@ exports.getMeta = (req, res) => {
             }
           }
           const charsArr = data[0].characteristics;
-          console.log(charsArr)
-          console.log(chars)
-          const keys = Object.keys(chars);
-          console.log(keys)
+          charsArr.forEach((id) => {
+            resObj.characteristics[chars[id].name] = chars[id];
+          });
           res.status(200).send(resObj);
         });
     });
