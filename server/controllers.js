@@ -9,19 +9,19 @@ exports.getAll = (req, res) => {
 };
 
 exports.getMeta = (req, res) => {
-  console.log('beginning of meta')
+  console.log('1/4  beginning of meta')
   Review.find({ product_id: req.params.product_id })
     .then((data) => {
-      Characteristics.findOne({ _id: '5ed172e0ad2baf650271fd2e' })
+      Characteristics.findOne({ 1: { id: 1, value: '4.0000', name: 'size' } })
         .then((chars) => {
-          console.log('after chars is set')
+          console.log('2/4  after chars is set')
           const resObj = {
             product_id: req.params.product_id.toString(),
             ratings: {},
             recommended: {},
             characteristics: {},
           };
-          console.log('before resObj is set')
+          console.log('3/4  before resObj is set')
           for (let i = 0; i < data.length; i += 1) {
             const { rating } = data[i];
             if (!resObj.ratings[rating]) {
@@ -30,7 +30,7 @@ exports.getMeta = (req, res) => {
               resObj.ratings[rating] += 1;
             }
           }
-          console.log('before characteristics are set')
+          console.log('4/4  before characteristics are set')
           const charsArr = data[0].characteristics;
           charsArr.forEach((id) => {
             resObj.characteristics[chars[id].name] = chars[id];
