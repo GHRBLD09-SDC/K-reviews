@@ -35,6 +35,7 @@ exports.addReview = (req, res) => {
 };
 
 exports.helpfulReview = (req, res) => {
+  console.log('here');
   Review.updateOne({ review_id: req.params.review_id }, { $inc: { helpfullness: 1 } })
     .then(() => {
       res.status(204).send();
