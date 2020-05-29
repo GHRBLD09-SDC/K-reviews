@@ -32,7 +32,7 @@ exports.getMeta = (req, res) => {
           }
           console.log('4/4  before characteristics are set')
           const charsArr = data[0].characteristics;
-          console.log(charsArr)
+          console.log(chars)
           charsArr.forEach((id) => {
             resObj.characteristics[chars[id].name] = chars[id];
           });
