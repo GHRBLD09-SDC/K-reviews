@@ -6,45 +6,55 @@ mongoose.connect('mongodb://localhost/greenfield', { autoIndex: false, useNewUrl
 // db.once('open', () => console.log('connection established to Greenfield Reviews'));
 
 const CharacteristicsSchema = {
-  size: {
+  1: {
     id: Number,
     value: String,
+    name: String,
   },
-  width: {
+  2: {
     id: Number,
     value: String,
+    name: String,
   },
-  comfort: {
+  3: {
     id: Number,
     value: String,
+    name: String,
   },
-  height: {
+  4: {
     id: Number,
     value: String,
+    name: String,
   },
-  opactiy: {
+  5: {
     id: Number,
     value: String,
+    name: String,
   },
-  teeth: {
+  6: {
     id: Number,
     value: String,
+    name: String,
   },
-  goldness: {
+  7: {
     id: Number,
     value: String,
+    name: String,
   },
-  squish: {
+  8: {
     id: Number,
     value: String,
+    name: String,
   },
-  dryness: {
+  9: {
     id: Number,
     value: String,
+    name: String,
   },
-  authenticity: {
+  10: {
     id: Number,
     value: String,
+    name: String,
   },
 };
 

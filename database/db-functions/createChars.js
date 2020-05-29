@@ -2,45 +2,55 @@ const fs = require('fs');
 
 const characteristics = ['size', 'width', 'comfort', 'height', 'opacity', 'teeth', 'goldness', 'squish', 'dryness', 'authenticity'];
 const characteristic = {
-  size: {
+  1: {
     id: 1,
     value: '4.0000',
+    name: 'size',
   },
-  width: {
+  2: {
     id: 2,
     value: '4.0000',
+    name: 'width',
   },
-  comfort: {
+  3: {
     id: 3,
     value: '4.0000',
+    name: 'comfort',
   },
-  height: {
+  4: {
     id: 4,
     value: '4.0000',
+    name: 'height',
   },
-  opacity: {
+  5: {
     id: 5,
     value: '4.0000',
+    name: 'opacity',
   },
-  teeth: {
+  6: {
     id: 6,
     value: '4.0000',
+    name: 'teeth',
   },
-  goldness: {
+  7: {
     id: 7,
     value: '4.0000',
+    name: 'goldness',
   },
-  squish: {
+  8: {
     id: 8,
     value: '4.0000',
+    name: 'squish',
   },
-  dryness: {
+  9: {
     id: 9,
     value: '4.0000',
+    name: 'dryness',
   },
-  authenticity: {
+  10: {
     id: 10,
     value: '4.0000',
+    name: 'authenticity',
   },
 };
 
