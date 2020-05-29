@@ -9,9 +9,10 @@ exports.getAll = (req, res) => {
 };
 
 exports.getMeta = (req, res) => {
+  console.log('here')
   Review.find({ product_id: req.params.product_id })
     .then((data) => {
-      Characteristics.findOne({_id: '5ed172e0ad2baf650271fd2e'})
+      Characteristics.findOne({ _id: '5ed172e0ad2baf650271fd2e' })
         .then((chars) => {
           const resObj = {
             product_id: req.params.product_id.toString(),
