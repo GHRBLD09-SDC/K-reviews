@@ -52,6 +52,16 @@ const characteristic = {
     value: '4.0000',
     name: 'authenticity',
   },
+  11: {
+    id: 10,
+    value: '4.0000',
+    name: 'def not copying',
+  },
+  12: {
+    id: 10,
+    value: '4.0000',
+    name: 'yarp',
+  },
 };
 
 for (let i = 0; i < 1; i += 1) {
