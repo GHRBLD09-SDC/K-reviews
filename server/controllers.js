@@ -35,7 +35,7 @@ exports.getMeta = (req, res) => {
           console.log(chars)
           console.log(charsArr)
           charsArr.forEach((id) => {
-            
+            if (id > 10) return;
             resObj.characteristics[chars[id.toString()].name] = chars[id.toString()];
           });
           res.status(200).send(resObj);
