@@ -14,7 +14,7 @@ const app = express();
 const port = 8154;
 
 
-app.listen(port, () => console.log(`Listenting at http://localhost:${port}`));
+app.listen(port, () => console.log(`Listenting at port ${port}`));
 app.use(cors());
 app.use(bp.json());
 
