@@ -2,7 +2,6 @@ const Review = require('../database/ReviewSchema.js');
 const Characteristics = require('../database/CharacteristicsSchema.js');
 
 exports.getAll = (req, res) => {
-  console.log('here')
   Review.find({ product_id: req.params.product_id })
     .then((data) => {
       res.status(200).send(data);
