@@ -26,7 +26,7 @@ exports.getMeta = (req, res) => {
             } else {
               resObj.ratings[rating] += 1;
             }
-          }console.log(data);
+          }
           const charsArr = data[0].characteristics;
           charsArr.forEach((id) => {
             if (id > 10) return;
