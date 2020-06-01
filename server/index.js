@@ -9,6 +9,9 @@ const {
   helpfulReview,
   report,
 } = require('./controllers.js');
+const {
+  redisGet,
+} = require('./redis.js');
 
 const app = express();
 const port = 8154;
@@ -34,4 +37,4 @@ app.put('/reviews/helpful/:review_id', helpfulReview);
 
 /* Updates a review to show it was reported. Note, this action does not delete the review,
  but the review will not be returned in the above GET request. */
-app.put('/reviews/report/:review_id', report);
+app.put('/reviews/report/:review_id', redisGet);
