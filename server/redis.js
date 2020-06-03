@@ -66,7 +66,7 @@ exports.redisGetMeta = (req, res) => {
             })
             .catch((error) => {
               // console.log('here')
-              res.send(error);
+              res.status(500).send(error);
             });
         });
     }
