@@ -28,7 +28,7 @@ app.use(bp.json());
 app.get('/reviews/:product_id/list', redisGetAll);
 
 /* Returns review metadata for a given product */
-app.get('/reviews/:product_id/meta', getMeta);
+app.get('/reviews/:product_id/meta', redisGetMeta);
 
 /* Adds a review for the given product */
 app.post('/reviews/:product_id', addReview);
