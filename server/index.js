@@ -10,7 +10,8 @@ const {
   report,
 } = require('./controllers.js');
 const {
-  redisGet,
+  redisGetAll,
+  redisGetMeta,
 } = require('./redis.js');
 
 const app = express();
@@ -24,7 +25,7 @@ app.use(bp.json());
 
 /* Returns a list of reviews for a particular product.
  This list does not include any reported reviews. */
-app.get('/reviews/:product_id/list', getAll);
+app.get('/reviews/:product_id/list', redisGetAll);
 
 /* Returns review metadata for a given product */
 app.get('/reviews/:product_id/meta', getMeta);
@@ -37,4 +38,4 @@ app.put('/reviews/helpful/:review_id', helpfulReview);
 
 /* Updates a review to show it was reported. Note, this action does not delete the review,
  but the review will not be returned in the above GET request. */
-app.put('/reviews/report/:review_id', redisGet);
+app.put('/reviews/report/:review_id', report);
