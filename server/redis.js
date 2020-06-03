@@ -19,6 +19,7 @@ exports.redisGet = (req, res) => {
 exports.redisGetAll = async (req, res) => {
   client.get(req.params.product_id, (err, result) => {
     if (!result) {
+      console.log(req.params.product_id)
       Review.find({ product_id: req.params.product_id })
         .then((dbReturn) => {
           client.set([req.params.product_id, JSON.stringify(dbReturn)]);
@@ -26,6 +27,7 @@ exports.redisGetAll = async (req, res) => {
           res.send(dbReturn);
         });
     } else {
+      console.log('in redis')
       res.status(200).send(JSON.parse(result));
     }
   });
@@ -63,12 +65,13 @@ exports.redisGetMeta = (req, res) => {
               res.status(200).send(resObj);
             })
             .catch((error) => {
+              // console.log('here')
               res.send(error);
             });
         });
     }
     else {
-      console.log('in redis')
+      console.log('redis')
       res.status(200).send(JSON.parse(result));
     }
   });
