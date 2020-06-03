@@ -7,19 +7,10 @@ const client = redis.createClient({ host: '127.0.0.1', port: 6379 });
 
 client.on('error', (err) => console.log(err));
 
-exports.redisGet = (req, res) => {
-  // client.get(req.params.product_id, (err) => {
-  //   if (err) {
-  //     client.set(req.params.product_id)
-  //     report(req, res);
-  //   }
-  // });
-};
 
 exports.redisGetAll = async (req, res) => {
   client.get(req.params.product_id, (err, result) => {
     if (!result) {
-      console.log(req.params.product_id)
       Review.find({ product_id: req.params.product_id })
         .then((dbReturn) => {
           client.set([req.params.product_id, JSON.stringify(dbReturn)]);
@@ -27,7 +18,6 @@ exports.redisGetAll = async (req, res) => {
           res.send(dbReturn);
         });
     } else {
-      console.log('in redis')
       res.status(200).send(JSON.parse(result));
     }
   });
@@ -36,7 +26,6 @@ exports.redisGetAll = async (req, res) => {
 exports.redisGetMeta = (req, res) => {
   client.get(req.params.product_id, (err, result) => {
     if (!result) {
-      console.log('not in redis')
       Review.find({ product_id: req.params.product_id })
         .then((data) => {
           Characteristics.findOne({ 1: { id: 1, value: '4.0000', name: 'size' } })
@@ -65,13 +54,10 @@ exports.redisGetMeta = (req, res) => {
               res.status(200).send(resObj);
             })
             .catch((error) => {
-              // console.log('here')
               res.status(500).send(error);
             });
         });
-    }
-    else {
-      console.log('redis')
+    } else {
       res.status(200).send(JSON.parse(result));
     }
   });
