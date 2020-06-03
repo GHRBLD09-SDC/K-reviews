@@ -33,6 +33,9 @@ exports.getMeta = (req, res) => {
             resObj.characteristics[chars[id.toString()].name] = chars[id.toString()];
           });
           res.status(200).send(resObj);
+        })
+        .catch((err) => {
+          res.send('no data');
         });
     });
 };

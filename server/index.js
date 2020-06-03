@@ -9,6 +9,10 @@ const {
   helpfulReview,
   report,
 } = require('./controllers.js');
+const {
+  redisGetAll,
+  redisGetMeta,
+} = require('./redis.js');
 
 const app = express();
 const port = 8154;
@@ -21,10 +25,10 @@ app.use(bp.json());
 
 /* Returns a list of reviews for a particular product.
  This list does not include any reported reviews. */
-app.get('/reviews/:product_id/list', getAll);
+app.get('/reviews/:product_id/list', redisGetAll);
 
 /* Returns review metadata for a given product */
-app.get('/reviews/:product_id/meta', getMeta);
+app.get('/reviews/:product_id/meta', redisGetMeta);
 
 /* Adds a review for the given product */
 app.post('/reviews/:product_id', addReview);
