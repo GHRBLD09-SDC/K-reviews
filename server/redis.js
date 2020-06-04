@@ -46,7 +46,7 @@ exports.redisGetMeta = (req, res) => {
               }
               const charsArr = data[0].characteristics;
               charsArr.forEach((id) => {
-                if (id > 10) return;
+                if (id > 10 || id === 0) return;
                 resObj.characteristics[chars[id.toString()].name] = chars[id.toString()];
               });
               client.set([req.params.product_id, JSON.stringify(resObj)]);
