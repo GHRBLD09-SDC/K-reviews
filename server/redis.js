@@ -14,7 +14,7 @@ exports.redisGetAll = async (req, res) => {
       Review.find({ product_id: req.params.product_id })
         .then((dbReturn) => {
           client.set([req.params.product_id, JSON.stringify(dbReturn)]);
-          client.expire(req.params.product_id, 10);
+          client.expire(req.params.product_id, 20);
           res.send(dbReturn);
         });
     } else {
@@ -50,7 +50,7 @@ exports.redisGetMeta = (req, res) => {
                 resObj.characteristics[chars[id.toString()].name] = chars[id.toString()];
               });
               client.set([req.params.product_id, JSON.stringify(resObj)]);
-              client.expire(req.params.product_id, 10);
+              client.expire(req.params.product_id, 20);
               res.status(200).send(resObj);
             })
             .catch((error) => {
