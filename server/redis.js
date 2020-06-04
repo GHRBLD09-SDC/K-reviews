@@ -3,7 +3,7 @@ const Review = require('../database/ReviewSchema.js');
 const Characteristics = require('../database/CharacteristicsSchema.js');
 
 
-const client = redis.createClient({ host: '3.16.131.145', port: 6379 });
+const client = redis.createClient({ host: '127.0.0.1', port: 6379 });
 
 client.on('error', (err) => console.log(err));
 
