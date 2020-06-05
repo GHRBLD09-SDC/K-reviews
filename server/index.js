@@ -25,7 +25,7 @@ app.use(bp.json());
 
 /* Returns a list of reviews for a particular product.
  This list does not include any reported reviews. */
-app.get('/reviews/:product_id/list', redisGetAll);
+app.get('/reviews/:product_id/list', getAll);
 
 /* Returns review metadata for a given product */
 app.get('/reviews/:product_id/meta', redisGetMeta);
