@@ -14,7 +14,7 @@ exports.redisGetAll = async (req, res) => {
       Review.find({ product_id: req.params.product_id })
         .then((dbReturn) => {
           client.set([req.params.product_id, JSON.stringify(dbReturn)]);
-          client.expire(req.params.product_id, 20);
+          client.expire(req.params.product_id, 120);
           res.send(dbReturn);
         });
     } else {
